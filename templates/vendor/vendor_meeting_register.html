@@ -1,0 +1,187 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Vendor Meeting Registration</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'account/css/bootstrap.min.css' %}">
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+</head>
+
+<body>
+    <img src="{% static 'header.png' %}" class="img-fluid" alt="header image">
+    <div class="container mt-5">
+
+        <p>Please fill out the form below to register for our vendor meeting.</p>
+        <form method="POST">
+            {% csrf_token %}
+            <div class="row">
+                <div class="form-group col-md-6">
+                    <label for="first-name">First Name</label>
+                    <input type="text" class="form-control" id="first-name" name="first_name" required>
+                </div>
+                <div class="form-group col-md-6">
+                    <label for="last-name">Last Name</label>
+                    <input type="text" class="form-control" id="last-name" name="last_name" required>
+                </div>
+            </div>
+            <div class="row">
+                <div class="form-group col-md-6">
+                    <label for="company-name">Company Name</label>
+                    <input type="text" class="form-control" id="company-name" name="company_name" required>
+                </div>
+                <div class="form-group col-md-6">
+                    <label for="email">Email</label>
+                    <input type="email" class="form-control" id="email" name="email" required>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="vendors">Select at least 20 vendors:</label>
+                <table class="table table-bordered table-hover table-sm table-responsive">
+                    <thead class="thead">
+                        <tr class="text-uppercase">
+                            <th>Select</th>
+                            <th>Company</th>
+                            <th>First Name</th>
+                            <th>Last Name</th>
+                            <th>Job Title</th>
+
+                            <th>Country</th>
+                            <th>Website</th>
+                            <th colspan="7">Destinations of Interest</th>
+                            <th>Budget for Events</th>
+                            <th>Weddings per Year</th>
+                        </tr>
+                        <tr>
+                            <th colspan="7"></th>
+                            <th>APAC</th>
+                            <th>MENA</th>
+                            <th>Europe</th>
+                            <th>North America</th>
+                            <th>Canada</th>
+                            <th>America</th>
+                            <th>Caribbean</th>
+                            <th colspan="2"></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for vendor in vendors %}
+                        <tr>
+                            <td>
+                                <div class="check">
+                                    <input class="form-check-input-lg" type="checkbox" name="vendors"
+                                        value="{{ vendor.id }}" id="vendor_{{ vendor.id }}">
+                                </div>
+                            </td>
+                            <td>{{ vendor.company_name }}</td>
+                            <td>{{ vendor.first_name }}</td>
+                            <td>{{ vendor.last_name }}</td>
+                            <td>{{ vendor.job_title }}</td>
+                            <td>{{ vendor.country }}</td>
+                            <td>{{ vendor.website }}</td>
+                            <td>{{ vendor.asia_pacific }}</td>
+                            <td>{{ vendor.middle_east_africa }}</td>
+                            <td>{{ vendor.europe }}</td>
+                            <td>{{ vendor.north_america }}</td>
+                            <td>{{ vendor.canada }}</td>
+                            <td>{{ vendor.south_central_america }}</td>
+                            <td>{{ vendor.caribbean }}</td>
+                            <td>{{ vendor.budget_for_events }}</td>
+                            <td>{{ vendor.weddings_per_year }}</td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+
+            </div>
+            <div style=" width: 100%;padding:10px;text-align: center;">
+                <button type="submit" class="btn btn-primary btn-lg">Submit Your Choices</button>
+            </div>
+
+        </form>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
+    <style>
+        /* Styles for the table */
+        .container {
+            max-width: 100%;
+        }
+
+        table {
+            font-family: arial, sans-serif;
+            border-collapse: collapse;
+            width: 100%;
+            font-size: 10px;
+
+        }
+
+        td,
+        th {
+            border: 1px solid #dddddd;
+            text-align: center;
+
+        }
+
+
+        thead {
+            background-color: #f8f9fa;
+            font-size: 11px;
+        }
+
+        .table thead th {
+            font-size: 12px;
+            text-transform: capitalize;
+        }
+
+        .form-control {
+            border: none;
+            border-bottom: 1px solid black;
+            outline: none;
+            box-shadow: none;
+        }
+
+        /* Styles for the form */
+        .form-group label {
+            font-weight: bold;
+            display: block;
+            margin-bottom: 0.5rem;
+        }
+
+        .form-group input {
+            padding: 0.5rem;
+            border: 1px solid #ced4da;
+            border-radius: 0.25rem;
+            /*width: 50%;*/
+
+        }
+
+        .form-check-input-lg {
+            width: 24px;
+            height: 24px;
+            padding-top: 1em !important;
+        }
+
+        .check {
+            padding-top: 2em;
+        }
+
+        .btn {
+            background-color: #007bff;
+            border-color: #007bff;
+            color: #fff;
+        }
+    </style>
+</body>
+
+</html>
