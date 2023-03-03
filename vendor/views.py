@@ -28,7 +28,7 @@ def vendor_meeting_register(request):
             # # Send email to user
             user_subject = 'Thank you for registering for the vendor meeting'
             user_message = f'Dear {first_name},\n\nThank you for registering for the vendor meeting. Your selected vendors are: {", ".join([vendor.company_name for vendor in vendors])}.'
-            send_mail(user_subject, user_message, 'bhavya@qna-global.com', ['bhavya@qna-global.com'])
+            # send_mail(user_subject, user_message, 'bhavya@qna-global.com', ['bhavya@qna-global.com'])
             # Send email to admin
             admin_subject = 'New vendor meeting registration'
             admin_message = f'A new vendor meeting registration has been submitted:\n\nFirst name: {first_name}\nLast name: {last_name}\nCompany name: {company_name}\nEmail: {email}\nSelected vendors: {", ".join([vendor.company_name for vendor in vendors])}'
