@@ -31,7 +31,7 @@ class VendorPlanner(models.Model):
 class VendorMeetingRegister(models.Model):
     first_name = models.CharField(max_length=255)
     last_name = models.CharField(max_length=255)
-    company_name = models.CharField(max_length=255, blank=True)
+    company_name =models.CharField(max_length=255)
     email = models.EmailField(max_length=255)
     create_time = models.DateTimeField(auto_now_add=True)
     vendors = models.ManyToManyField(VendorPlanner)
