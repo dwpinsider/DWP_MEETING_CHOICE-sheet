@@ -26,9 +26,9 @@ def vendor_meeting_register(request):
             meeting_register.save()
             meeting_register.vendors.set(vendors)
             # # Send email to user
-            user_subject = 'Thank you for registering for the vendor meeting'
-            user_message = f'Dear {first_name},\n\nThank you for registering for the vendor meeting.'
-            send_mail(user_subject, user_message, 'bhavya@qna-global.com', [email])
+            user_subject = 'DWP Congress 2023 - Meeting Choices'
+            user_message = f'Dear {first_name},\n\nThank you for submitting your choices for DWP Congress 2023. It has been well received.\n\nFor any further information, I am happy to be of assistance.\n\nHave a brilliant day ahead.\n\n\nBest regards,\n\nNancy'
+            send_mail(user_subject, user_message, 'nancy.jones@dwpcongress.net', [email])
             # Send email to admin
             admin_subject = 'New vendor meeting registration'
             admin_message = f'A new vendor meeting registration has been submitted:\n\nFirst name: {first_name}\nLast name: {last_name}\nCompany name: {company_name}\nEmail: {email}\nSelected vendors: {", ".join([vendor.company_name for vendor in vendors])}'
