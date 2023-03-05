@@ -12,10 +12,10 @@
 </head>
 
 <body>
-    <img src="{% static 'header.png' %}" class="img-fluid" alt="header image">
+    <img src="{% static 'header-dwp1.jpg' %}" class="img-fluid" alt="header image">
     <div class="container mt-5">
 
-        <p>Please fill out the form below to register for our vendor meeting.</p>
+        <p>Please fill out the below form and choose a maximum of 30 buyers that you have an interest in meeting with, during the congress.</p>
         <form method="POST">
             {% csrf_token %}
             <div class="row">
@@ -39,7 +39,8 @@
                 </div>
             </div>
             <div class="form-group">
-                <label for="vendors">Select at least 20 vendors:</label>
+                <label for="vendors">Select a minimum of 30 Planners from the list:</label>
+                <p>The appointments are arranged based on mutual choice, delegate choice and your choice respectively.</p>
                 <table class="table table-bordered table-hover table-sm table-responsive">
                     <thead class="thead">
                         <tr class="text-uppercase">
@@ -130,6 +131,8 @@
         th {
             border: 1px solid #dddddd;
             text-align: center;
+            vertical-align: middle !important;
+
 
         }
 
