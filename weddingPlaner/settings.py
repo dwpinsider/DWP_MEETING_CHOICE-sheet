@@ -132,13 +132,13 @@ USE_TZ = True
 
 #email
 
-# EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
-# EMAIL_HOST = 'smtp.gmail.com'
-# EMAIL_USE_TLS = True
-# EMAIL_PORT = 587
-# EMAIL_HOST_USER = 'bhavyaharidas007@gmail.com'
-# EMAIL_HOST_PASSWORD = 'jfhbargozawpamye'
-# DEFAULT_FROM_EMAIL = 'bhavyaharidas007@gmail.com'
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_USE_TLS = True
+EMAIL_PORT = 587
+EMAIL_HOST_USER = 'nancy.jones@dwpcongress.net'
+EMAIL_HOST_PASSWORD = 'Qn9972144007!'
+DEFAULT_FROM_EMAIL = 'nancy.jones@dwpcongress.net'
 
 
 
